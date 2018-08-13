@@ -1,5 +1,5 @@
 ---
-- name: wsadmin poc
+- name: was sync
   hosts: all
   gather_facts: false
   roles:
