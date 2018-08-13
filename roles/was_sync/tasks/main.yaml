@@ -2,10 +2,12 @@
 - name: sync active nodes
   shell: '{{ wsadmin_path }} -conntype none -lang jython -c "{{ app_list }}"'
   register: was_sync_out
+  tags: was_sync
 
 - name: sync output
   debug:
     msg: "{{ was_sync_out.stdout_lines }}"
+  tags: was_out
 
 - name: sending message to slack channel
   slack:
