@@ -10,6 +10,6 @@
 - name: Sending message to slack channel
   slack:
     token: "{{ slk_token }}"
-    msg: "message from list_apps.yaml on {{ inventory_hostname }}"
+    msg: "running apps on {{ inventory_hostname }}: {{ apps_out.stdout_lines }}"
   delegate_to: localhost
   tags: slack
