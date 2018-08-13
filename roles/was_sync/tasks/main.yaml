@@ -1,6 +1,6 @@
 ---
 - name: sync active nodes
-  shell: '{{ wsadmin_path }}  -lang jython -c "{{ ws_sync }}"'
+  shell: '{{ wsadmin_path }} -lang jython -c "{{ ws_sync }}"'
   register: was_sync_out
   tags: was_sync
 
@@ -12,7 +12,7 @@
 - name: sending message to slack channel
   slack:
     token: "{{ slack_token }}"
-    msg: "was sync output:\n {{ was_sync_out.stdout }}"
+    msg: "was sync output: {{ was_sync_out.stdout }}"
     color: good
   delegate_to: localhost
   tags: slack
