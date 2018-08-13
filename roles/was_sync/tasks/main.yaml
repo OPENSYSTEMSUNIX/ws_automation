@@ -1,4 +1,5 @@
 ---
+#file: roles/was_sync/tasks/main.yaml
 - name: get current date/time
   command: date
   register: ws_date

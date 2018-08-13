@@ -1,4 +1,5 @@
 ---
+#file: roles/list_apps/defaults/main.yaml
 wsadmin_path: /usr/local/WebSphere7/AppServer/profiles/Dmgr01/bin/wsadmin.sh
 app_list: 'print AdminApp.list()'
 

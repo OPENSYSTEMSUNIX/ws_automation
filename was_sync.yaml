@@ -1,4 +1,5 @@
 ---
+#file: was_sync.yaml
 - name: was sync
   hosts: all
   gather_facts: false

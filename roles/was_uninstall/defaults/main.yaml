@@ -1,3 +1,4 @@
 ---
+#file: roles/was_uninstall/defaults/main.yaml
 wsadmin_path: /usr/local/WebSphere7/AppServer/profiles/Dmgr01/bin/wsadmin.sh
 ws_uninstall: 'AdminApp.uninstall('RC_Scheduler')'

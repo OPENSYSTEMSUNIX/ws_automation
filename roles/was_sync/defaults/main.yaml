@@ -1,4 +1,5 @@
 ---
+#file: roles/was_sync/defaults/main.yaml
 wsadmin_path: /usr/local/WebSphere7/AppServer/profiles/Dmgr01/bin/wsadmin.sh
 ws_sync: 'AdminNodeManagement.syncActiveNodes()'
 

@@ -1,4 +1,5 @@
 ---
+#file: roles/list_apps/tasks/main.yaml 
 - name: query apps
   shell: '{{ wsadmin_path }} -conntype none -lang jython -c "{{ app_list }}"'
   register: apps_out

@@ -1,6 +1,7 @@
 # WS Automation
 
 ## ansible playbooks for automating WS deployments and various utilities
+
 ```
 ├── dev
 ├── list_apps.yaml
@@ -41,7 +42,8 @@
 16 directories, 19 files
 ```
 
-## example playbooks
+## example playbook
+
 ```
 ---
 - name: wsadmin poc

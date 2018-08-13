@@ -1,8 +1,9 @@
 ---
-  - name: uninstall app
-    shell: '{{ wsadmin_path }} -conntype none -lang jython -c "{{ uninstall_app }}"'
-    register: uninstall_out
+#file: roles/was_uninstall/tasks/main.yaml
+- name: uninstall app
+  shell: '{{ wsadmin_path }} -conntype none -lang jython -c "{{ uninstall_app }}"'
+  register: uninstall_out
 
-  - name: uninstall output
-    debug:
-      msg: "{{ uninstall_out.stdout_lines }}"
+- name: uninstall output
+  debug:
+    msg: "{{ uninstall_out.stdout_lines }}"
