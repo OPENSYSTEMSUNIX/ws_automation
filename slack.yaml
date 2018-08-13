@@ -1,0 +1,12 @@
+---
+- name: slack notification test
+  hosts: all
+  gather_facts: false
+  become: yes
+  become_user: root
+  tasks:
+  - name: Sending message to slack channel
+    slack:
+      token: "T8XFBCPUJ/BB5EN658B/N8kt3TJtki8GeedVvdcfRX45"
+      msg: 'message from {{ inventory_hostname }}'
+    delegate_to: localhost
