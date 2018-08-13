@@ -14,5 +14,5 @@
     token: "{{ slack_token }}"
     msg: "running apps on {{ inventory_hostname }}:\n {{ apps_out.stdout }}"
     color: good
-  delegate_to: '{{ slack_host }}'
+  delegate_to: localhost
   tags: slack
