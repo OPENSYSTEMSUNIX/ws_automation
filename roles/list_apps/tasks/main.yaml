@@ -6,3 +6,9 @@
   - name: apps list
     debug:
       msg: "{{ apps_out.stdout_lines }}"
+
+  - name: slack output
+    include_role: 
+      name: slack
+    vars:
+      payload: "app list ran from {{ inventory_hostname }}"
