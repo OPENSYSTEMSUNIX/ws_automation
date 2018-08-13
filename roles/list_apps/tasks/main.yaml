@@ -2,14 +2,17 @@
 - name: query apps
   shell: '{{ wsadmin_path }} -conntype none -lang jython -c "{{ app_list }}"'
   register: apps_out
+  tags: query_apps
 
 - name: apps list
   debug:
     msg: "{{ apps_out.stdout_lines }}"
+  tags: list_apps
 
-- name: Sending message to slack channel
+- name: sending message to slack channel
   slack:
-    token: "{{ slk_token }}"
-    msg: "running apps on {{ inventory_hostname }}: {{ apps_out.stdout }}"
-  delegate_to: localhost
+    token: "{{ slack_token }}"
+    msg: "running apps on {{ inventory_hostname }}:\n {{ apps_out.stdout }}"
+    color: good
+  delegate_to: '{{ slack_host }}'
   tags: slack
