@@ -1,14 +1,15 @@
 ---
-  - name: query apps
-    shell: '{{ wsadmin_path }} -conntype none -lang jython -c "{{ app_list }}"'
-    register: apps_out
+- name: query apps
+  shell: '{{ wsadmin_path }} -conntype none -lang jython -c "{{ app_list }}"'
+  register: apps_out
 
-  - name: apps list
-    debug:
-      msg: "{{ apps_out.stdout_lines }}"
+- name: apps list
+  debug:
+    msg: "{{ apps_out.stdout_lines }}"
 
-  - name: slack output
-    include_role: 
-      name: slack
-    vars:
-      payload: "app list ran from {{ inventory_hostname }}"
+- name: Sending message to slack channel
+  slack:
+    token: "{{ slk_token }}"
+    msg: "message from list_apps.yaml on {{ inventory_hostname }}"
+  delegate_to: localhost
+  tags: slack
