@@ -1,0 +1,11 @@
+---
+- name: RC Scheduler deployment role
+  hosts: all
+  gather_facts: false
+  roles:
+    - was_uninstall
+    - config_save
+    - was_sync
+    - was_deply
+    - config_save
+    - was_sync

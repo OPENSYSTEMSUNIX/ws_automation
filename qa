@@ -1,0 +1,11 @@
+
+[payments]
+atlwasqa01 
+atlwasqa02 
+
+[payments:vars]
+ansible_python_interpreter="/opt/bin/python"
+ansible_user=root
+
+#[rc]
+#sa1x-wasrc-q3

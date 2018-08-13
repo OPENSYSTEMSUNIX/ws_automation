@@ -1,0 +1,8 @@
+---
+  - name: query apps
+    shell: '{{ wsadmin_path }} -conntype none -lang jython -c "{{ app_list }}"'
+    register: apps_out
+
+  - name: apps list
+    debug:
+      msg: "{{ apps_out.stdout_lines }}"

@@ -1,0 +1,10 @@
+
+[payments]
+atlwasuat01
+atlwasuat02
+
+[payments:vars]
+ansible_python_interpreter="/opt/bin/python"
+
+[rc]
+sa1x-wasrc-u3

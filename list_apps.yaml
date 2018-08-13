@@ -1,0 +1,7 @@
+---
+- name: wsadmin poc
+  hosts: all
+  gather_facts: false
+  roles:
+    - list_apps
+

@@ -1,0 +1,9 @@
+
+[payments]
+sa1x-was-d1
+
+[payments:vars]
+ansible_user=root
+
+[rc]
+sa1x-wasrc-d3
