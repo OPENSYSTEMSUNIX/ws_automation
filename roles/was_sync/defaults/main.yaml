@@ -1,3 +1,6 @@
 ---
 wsadmin_path: /usr/local/WebSphere7/AppServer/profiles/Dmgr01/bin/wsadmin.sh
-app_list: 'AdminNodeManagement.syncActiveNodes()'
+ws_sync: 'AdminNodeManagement.syncActiveNodes()'
+
+slack_token: "T8XFBCPUJ/BB5EN658B/N8kt3TJtki8GeedVvdcfRX45"
+slack_host: localhost
