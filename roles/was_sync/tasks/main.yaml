@@ -1,6 +1,6 @@
 ---
 - name: sync active nodes
-  shell: '{{ wsadmin_path }} -conntype none -lang jython -c "{{ app_list }}"'
+  shell: '{{ wsadmin_path }}  -lang jython -c "{{ ws_sync }}"'
   register: was_sync_out
   tags: was_sync
 
