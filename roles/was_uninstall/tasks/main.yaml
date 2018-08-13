@@ -1,8 +1,8 @@
 ---
-  - name: sync active nodes
-    shell: '{{ wsadmin_path }} -conntype none -lang jython -c "{{ app_list }}"'
-    register: was_sync_out
+  - name: uninstall app
+    shell: '{{ wsadmin_path }} -conntype none -lang jython -c "{{ uninstall_app }}"'
+    register: uninstall_out
 
-  - name: sync output
+  - name: uninstall output
     debug:
-      msg: "{{ was_sync_out.stdout_lines }}"
+      msg: "{{ uninstall_out.stdout_lines }}"
