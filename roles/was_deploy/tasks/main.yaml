@@ -1,7 +1,7 @@
 ---
 #file: roles/was_deploy/tasks/main.yaml
 - name: was deploy
-  shell: '{{ wsadmin_path }} -conntype none -lang jython -c "{{ app_list }}"'
+  shell: '{{ wsadmin_path }} -lang jython -c "{{ app_list }}"'
   register: was_sync_out
 
 - name: deploy output
