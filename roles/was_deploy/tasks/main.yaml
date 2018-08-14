@@ -14,7 +14,7 @@
   tags: slack
 
 - name: was deploy
-  shell: '{{ app_install }}'
+  shell: '{{ wsadmin_path }} -lang jython -f {{ app_install }}'
   register: was_deply_out
 
 - name: deploy output
