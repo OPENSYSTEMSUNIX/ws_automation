@@ -26,7 +26,7 @@
 - name: sending message to slack channel
   slack:
     token: "{{ slack_token }}"
-    msg: "running apps on {{ inventory_hostname }}:\n {{ uninstall_out.stdout }}"
+    msg: "uninsalling app on {{ inventory_hostname }}:\n {{ uninstall_out.stdout }}"
     color: good
   delegate_to: localhost
   tags: slack
