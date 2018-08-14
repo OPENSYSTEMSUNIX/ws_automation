@@ -1,7 +1,7 @@
 ---
 #file: roles/was_uninstall/defaults/main.yaml
 wsadmin_path: /usr/local/WebSphere7/AppServer/profiles/Dmgr01/bin/wsadmin.sh
-ws_uninstall: 'AdminApp.uninstall({{ app_name }})'
+uninstall_app: 'AdminApp.uninstall({{ app_name }})'
 app_name: "'RC_Scheduler'"
 
 slack_token: "T8XFBCPUJ/BB5EN658B/N8kt3TJtki8GeedVvdcfRX45"
