@@ -8,7 +8,7 @@
 - name: sending message to slack channel
   slack:
     token: "{{ slack_token }}"
-    msg: "starting ws app deployment at {{ ws_date.stdout }} on {{ inventory_hostname }}..."
+    msg: "*** Starting deployment of {{ app_name }} app deployment at {{ ws_date.stdout }} on {{ inventory_hostname }}..."
     color: good
   delegate_to: localhost
   tags: slack
@@ -26,7 +26,7 @@
 - name: sending message to slack channel
   slack:
     token: "{{ slack_token }}"
-    msg: "*** Succefully completed uninsalling {{ app_name }} on {{ inventory_hostname }}:\n {{ uninstall_out.stdout }}"
+    msg: "*** Completed uninstalling {{ app_name }} on {{ inventory_hostname }}:\n {{ uninstall_out.stdout }}"
     color: good
   delegate_to: localhost
   tags: slack
