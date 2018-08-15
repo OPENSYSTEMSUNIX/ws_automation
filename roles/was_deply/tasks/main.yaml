@@ -24,7 +24,7 @@
 - name: sending message to slack channel
   slack:
     token: "{{ slack_token }}"
-    msg: "completed app install on {{ inventory_hostname }}:\n {{ was_deply_out.stdout }}"
+    msg: "*** Completed app install {{ app_name }} on {{ inventory_hostname }}:\n {{ was_deply_out.stdout }}"
     color: good
   delegate_to: localhost
   tags: slack

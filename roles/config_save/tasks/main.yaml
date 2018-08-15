@@ -14,7 +14,7 @@
 - name: sending message to slack channel
   slack:
     token: "{{ slack_token }}"
-    msg: "was config save output on {{ inventory_hostname }}:\n {{ was_config_save.stdout }}"
+    msg: "*** Starting was config save on {{ inventory_hostname }}:\n {{ was_config_save.stdout }}"
     color: good
   delegate_to: localhost
   tags: slack
