@@ -1,5 +1,5 @@
 ---
-#file: roles/list_apps/tasks/main.yaml 
+#file: roles/list_apps/tasks/main.yaml
 - name: query apps
   shell: '{{ wsadmin_path }} -lang jython -c "{{ app_list }}"'
   register: apps_out
@@ -13,7 +13,12 @@
 - name: sending message to slack channel
   slack:
     token: "{{ slack_token }}"
-    msg: "running apps on {{ inventory_hostname }}:\n {{ apps_out.stdout }}"
+    msg: "*** Applications currently running on {{ inventory_hostname }}:\n {{ apps_out.stdout }}"
     color: good
   delegate_to: localhost
   tags: slack
+
+- name: sending message to slack channel
+  slack:
+    token: '{{ token }}'
+    msg: "most recent successful list_apps.yaml run...\n http://sa1x-awx-p1/#/jobs/{{ apps_out.results[-1].id }}"

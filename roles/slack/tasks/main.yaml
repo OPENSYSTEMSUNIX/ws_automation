@@ -1,6 +1,6 @@
 ---
 - name: Sending message to slack channel
   slack:
-    token: "T8XFBCPUJ/BB5EN658B/N8kt3TJtki8GeedVvdcfRX45"
+    token: "{{ token }}"
     msg: "{{ payload }}"
   delegate_to: localhost
