@@ -10,23 +10,9 @@
     msg: "{{ apps_out.stdout_lines }}"
   tags: list_apps
 
-- name: sending message to slack channel
-  slack:
-    token: "{{ slack_token }}"
-    msg: "*** Applications currently running on {{ inventory_hostname }}:\n {{ apps_out.stdout }}"
-    color: good
-  delegate_to: localhost
-  tags: slack
-
-#- name: sending message to slack channel
-#  slack:
-#    token: '{{ token }}'
-#    msg: "most recent successful list_apps.yaml run...\n http://sa1x-awx-p1/#/jobs/{{ apps_out.results[-1].id }}"
-#  tags: slack
-
 - name: debug slack role
   import_role:
     name: slack
   vars:
-    payload: "*** Applications currently running on {{ inventory_hostname }}:\n {{ apps_out.stdout }}"
+    payload: "*** Applications currently running on {{ inventory_hostname }}  -- {{ wsadmin_path }}:\n {{ apps_out.stdout }}"
   tags: slackr
