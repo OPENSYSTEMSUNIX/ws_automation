@@ -2,6 +2,3 @@
 #file: roles/was_sync/defaults/main.yaml
 wsadmin_path: /usr/local/WebSphere7/AppServer/profiles/Dmgr01/bin/wsadmin.sh
 ws_config_save: 'AdminConfig.save()'
-
-slack_token: "T8XFBCPUJ/BB5EN658B/N8kt3TJtki8GeedVvdcfRX45"
-slack_host: localhost

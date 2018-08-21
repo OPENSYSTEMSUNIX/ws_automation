@@ -12,9 +12,8 @@
   tags: was_save_out
 
 - name: sending message to slack channel
-  slack:
-    token: "{{ slack_token }}"
-    msg: "*** Starting was config save on {{ inventory_hostname }}:\n {{ was_config_save.stdout }}"
-    color: good
-  delegate_to: localhost
+  import_role:
+    name: slack
+  vars:
+    payload: "*** Starting was config save on {{ inventory_hostname }}:\n {{ was_config_save.stdout }}"
   tags: slack

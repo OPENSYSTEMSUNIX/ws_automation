@@ -6,11 +6,10 @@
   tags: ws_date
 
 - name: sending message to slack channel
-  slack:
-    token: "{{ slack_token }}"
-    msg: "*** Starting {{ app_name}} install at {{ ws_date.stdout }} on {{ inventory_hostname }}..."
-    color: good
-  delegate_to: localhost
+  import_role:
+    name: slack
+  vars:
+   payload: "*** Starting {{ app_name}} install at {{ ws_date.stdout }} on {{ inventory_hostname }}..."
   tags: slack
 
 - name: was deploy
@@ -22,9 +21,8 @@
     msg: "{{ was_deply_out.stdout_lines }}"
 
 - name: sending message to slack channel
-  slack:
-    token: "{{ slack_token }}"
-    msg: "*** Completed app install {{ app_name }} on {{ inventory_hostname }}:\n {{ was_deply_out.stdout }}"
-    color: good
-  delegate_to: localhost
+  import_role:
+    name: slack
+  vars:
+    payload: "*** Completed app install {{ app_name }} on {{ inventory_hostname }}:\n {{ was_deply_out.stdout }}"
   tags: slack
