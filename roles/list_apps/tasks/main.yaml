@@ -18,7 +18,15 @@
   delegate_to: localhost
   tags: slack
 
-- name: sending message to slack channel
-  slack:
-    token: '{{ token }}'
-    msg: "most recent successful list_apps.yaml run...\n http://sa1x-awx-p1/#/jobs/{{ apps_out.results[-1].id }}"
+#- name: sending message to slack channel
+#  slack:
+#    token: '{{ token }}'
+#    msg: "most recent successful list_apps.yaml run...\n http://sa1x-awx-p1/#/jobs/{{ apps_out.results[-1].id }}"
+#  tags: slack
+
+- name: debug slack role
+  import_role:
+    name: slack
+  vars:
+    payload: "*** Applications currently running on {{ inventory_hostname }}:\n {{ apps_out.stdout }}"
+  tags: slackr
