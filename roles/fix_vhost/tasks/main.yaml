@@ -1,0 +1,18 @@
+---
+#file: roles/list_apps/tasks/main.yaml
+- name: query apps
+  shell: '{{ wsadmin_path }} -lang jython -c "{{ app_list }}"'
+  register: apps_out
+  tags: query_apps
+
+- name: apps list
+  debug:
+    msg: "{{ apps_out.stdout_lines }}"
+  tags: list_apps
+
+- name: debug slack role
+  import_role:
+    name: slack
+  vars:
+    payload: "*** Applications currently running on {{ inventory_hostname }}  -- {{ wsadmin_path }}:\n {{ apps_out.stdout }}"
+  tags: slackr

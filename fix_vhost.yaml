@@ -1,0 +1,7 @@
+---
+#file: fix_vhost.yaml
+- name: wsadmin poc
+  hosts: all
+  gather_facts: false
+  roles:
+    - fix_vhost
