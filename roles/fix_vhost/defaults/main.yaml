@@ -1,5 +1,4 @@
 ---
 #file: roles/list_apps/defaults/main.yaml
 wsadmin_path: /usr/local/WebSphere7/AppServer/profiles/Dmgr01/bin/wsadmin.sha
-app_name: "app_name"
-app_list: 'AdminApp.edit("{{ app_name }}")'
+ws_script: /usr/local/scripts/fix_BranchFTNP_virtualhost_mapping
