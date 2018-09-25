@@ -1,7 +1,0 @@
----
-#file: test.yaml
-- name: test
-  hosts: all
-  gather_facts: false
-  roles:
-    - config_save

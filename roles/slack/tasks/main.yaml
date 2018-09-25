@@ -4,4 +4,5 @@
     token: "{{ token }}"
     msg: "{{ payload }}"
     validate_certs: no
-#  delegate_to: localhost
+  delegate_to: "{{ slack_host }}"
+  ignore_errors: yes
