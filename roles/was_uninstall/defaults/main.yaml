@@ -3,3 +3,4 @@
 wsadmin_path: /usr/local/WebSphere7/AppServer/profiles/Dmgr01/bin/wsadmin.sh
 uninstall_app: 'AdminApp.uninstall({{ app_name }})'
 app_name: "'RC_Scheduler'"
+#test-commit
