@@ -5,10 +5,12 @@
   gather_facts: no
   vars:
     - desturl: "http://sa1x-awx-p1.harlandclarke.local"
+    - ret_code: 200
   tasks:
     - name: "call url: {{ desturl }}"
       uri:
         url: "{{ desturl }}"
+        status_code: "{{ ret_code }}"
       register: status
 
     - name: check url call status
