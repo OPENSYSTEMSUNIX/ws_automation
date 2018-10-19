@@ -1,0 +1,16 @@
+---
+#file: jenkins-bd-chk.yaml
+- name: jenkins build check
+  hosts: localhost
+  gather_facts: no
+  vars:
+    - desturl: "http://sa1x-awx-p1.harlandclarke.local"
+  tasks:
+    - name: "call url: {{ desturl }}"
+      uri:
+        url: "{{ desturl }}"
+      register: status
+
+    - name: check url call status
+      debug:
+        msg: "URL returned: {{ status.status }}"
