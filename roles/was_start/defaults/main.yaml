@@ -1,0 +1,5 @@
+---
+#file: roles/was_start/defaults/main.yaml
+start_script_path: /usr/local/wasprofiles/Custom01/bin/startServer.sh
+profile: "'Custom01'"
+jvm_name: "'stationCom01'"

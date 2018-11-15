@@ -1,0 +1,30 @@
+---
+#file: roles/was_stop/tasks/main.yaml
+- name: get current date/time
+  command: date
+  register: ws_date
+  tags: ws_date
+
+- name: sending message to slack channel
+  import_role:
+    name: slack
+  vars:
+   payload: "*** stopping app server on {{ inventory_hostname }} at {{ ws_date.stdout }}..."
+  tags: slack
+
+- name: was server stop
+#become: yes
+#become_user: root
+ shell: '{{ stop_script_path }} -profileName {{profile}} {{ jvm_name }} -username {{user}} -password {{pwd}}'
+  register: was_stop_out
+
+- name: stop output
+  debug:
+    msg: "{{ was_stop_out.stdout_lines }}"
+
+- name: sending message to slack channel
+  import_role:
+    name: slack
+  vars:
+    payload: "*** Completed app server stop on {{ inventory_hostname }}:\n {{ was_stop_out.stdout }}"
+  tags: slack
