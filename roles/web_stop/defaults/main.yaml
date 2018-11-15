@@ -1,0 +1,5 @@
+---
+#file: roles/web_stop/defaults/main.yaml
+script_path: /usr/local/scripts/stop_all_IHS85_http.sh
+#app_install: /usr/local/scripts/Automated-RC_Scheduler-Jython-Install
+#app_name: "'RC_Scheduler'"
