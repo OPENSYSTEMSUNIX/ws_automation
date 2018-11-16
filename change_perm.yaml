@@ -1,0 +1,7 @@
+---
+#file: web_stop.yaml
+- name: Changing permissions on Installed Apps directories
+  hosts: all
+  gather_facts: false
+  roles:
+    - change_perm
