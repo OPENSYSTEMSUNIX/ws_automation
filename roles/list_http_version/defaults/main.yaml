@@ -1,0 +1,3 @@
+---
+#file: roles/list_apps/defaults/main.yaml
+apachectl_path: /usr/local/HTTPServer85/bin/apachectl

@@ -1,0 +1,7 @@
+---
+#file: list_http_version.yaml
+- name: list http version
+  hosts: all
+  gather_facts: false
+  roles:
+    - list_http_version
