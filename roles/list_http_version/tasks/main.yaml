@@ -1,0 +1,18 @@
+---
+#file: roles/list_apps/tasks/main.yaml
+- name: query http version
+  shell: '{{ apachectl_path }} -v'
+  register: apps_out
+  tags: query_http_version
+
+- name: list http version
+  debug:
+    msg: "{{ apps_out.stdout_lines }}"
+  tags: list_http_version
+
+- name: debug slack role
+  import_role:
+    name: slack
+  vars:
+    payload: "*** Http Version currently running on {{ inventory_hostname }}  -- \n {{ apps_out.stdout }}"
+  tags: slackr
