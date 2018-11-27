@@ -26,5 +26,5 @@
   import_role:
     name: slack
   vars:
-    payload: "*** change permissions on installedApps at {{installed_apps_path}} on server  {{ inventory_hostname }}:\n {{ change_perm_out.stdout }}"
+    payload: "*** Completed change permissions on installedApps at {{installed_apps_path}} on server  {{ inventory_hostname }}:\n {{ change_perm_out.stdout }}"
   tags: slack
