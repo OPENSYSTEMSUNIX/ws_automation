@@ -8,7 +8,7 @@
     import_role:
         name: slack
     vars:
-        payload: '*** Starting app server on {{ inventory_hostname }} at {{ ws_date.stdout }}...'
+        payload: '*** Starting {{ jvm_name }} on {{ inventory_hostname }} at {{ ws_date.stdout }}...'
     tags: slack
 -
     name: 'was server start'
@@ -23,5 +23,5 @@
     import_role:
         name: slack
     vars:
-        payload: "*** Completed app server start on {{ inventory_hostname }}:\n {{ was_start_out.stdout }}"
+        payload: "*** Completed {{ jvm_name }} start on {{ inventory_hostname }}:\n {{ was_start_out.stdout }}"
     tags: slack
