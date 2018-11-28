@@ -12,10 +12,10 @@
    payload: "*** stopping app server on {{ inventory_hostname }} at {{ ws_date.stdout }}..."
   tags: slack
 
-- name: was server stop
+- name: was_server stop
 #become: yes
 #become_user: root
- shell: "{{ stop_script_path }}"
+ shell: '{{ stop_script_path }}'
   register: was_stop_out
 
 - name: stop output
