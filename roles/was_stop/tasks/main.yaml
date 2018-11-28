@@ -15,7 +15,7 @@
 - name: was server stop
 #become: yes
 #become_user: root
- shell: '{{ stop_script_path }}'
+ shell: "{{ stop_script_path }}"
   register: was_stop_out
 
 - name: stop output
