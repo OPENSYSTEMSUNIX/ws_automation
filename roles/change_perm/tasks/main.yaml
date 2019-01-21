@@ -15,7 +15,7 @@
 - name:  change permissions on installedApps
 #become: yes
 #become_user: root
-  command: chmod -R 777 /usr/local/wasprofiles/Custom01/installedApps/sa1x-dmgrrc-p3Cell01/*
+  command: chmod -R 777 {{installed_apps_path}}/*
   register: change_perm_out
 
 - name: perm output
