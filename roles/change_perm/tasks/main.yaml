@@ -15,8 +15,7 @@
 - name:  change permissions on installedApps
 #become: yes
 #become_user: root
-  command: find {{ installed_apps_path }} -type d -exec chmod 0777 {} \;
-  command: ls -ltr | more
+  command: chmod -R 777 {{installed_apps_path}}
   register: change_perm_out
 
 - name: perm output
