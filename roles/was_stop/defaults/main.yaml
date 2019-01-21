@@ -1,7 +1,9 @@
 ---
 #file: roles/was_stop/defaults/main.yaml
-stop_script_path: /usr/local/scripts/stop_all_WAS85_JVMs.sh
+stop_script_path: /usr/local/wasprofiles/Custom01/bin/stopServer.sh
+profile: "'Custom01'"
+jvm_name: "'stationCom01'"
 #profile: "'Custom01'"
 #jvm_name: "'stationCom01'"
-#user: "'wasadmin'"
-#pwd: "'Unix@ts'"
+user: "'wasadmin'"
+pwd: "'Unix@ts'"
