@@ -8,7 +8,7 @@
     import_role:
         name: slack
     vars:
-        payload: '*** stopping app server on {{ inventory_hostname }} at {{ ws_date.stdout }}...'
+        payload: '*** stopping {{ jvm_name }} on {{ inventory_hostname }} at {{ ws_date.stdout }}...'
     tags: slack
 -
     name: 'was_server stop'
