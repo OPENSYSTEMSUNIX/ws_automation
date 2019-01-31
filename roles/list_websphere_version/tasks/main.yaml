@@ -1,0 +1,18 @@
+---
+#file: roles/list_apps/tasks/main.yaml
+- name: query websphere version
+  shell: '{{ version_path }}'
+  register: apps_out
+  tags: query_websphere_version
+
+- name: list http version
+  debug:
+    msg: "{{ apps_out.stdout_lines }}"
+  tags: list_websphere_version
+
+- name: debug slack role
+  import_role:
+    name: slack
+  vars:
+    payload: "*** Websphere Version currently running on {{ inventory_hostname }}  -- \n {{ apps_out.stdout }}"
+  tags: slackr

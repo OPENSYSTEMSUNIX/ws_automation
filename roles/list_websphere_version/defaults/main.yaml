@@ -1,0 +1,3 @@
+---
+#file: roles/list_apps/defaults/main.yaml
+version_path: /usr/local/wasprofiles/Custom01/bin/versionInfo.sh
