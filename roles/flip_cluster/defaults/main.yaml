@@ -1,0 +1,5 @@
+---
+#file: roles/was_start/defaults/main.yaml
+flip_script_path: /usr/local/scripts/flip_cluster.sh
+appname: "'CoreCCP'"
+cluster_name: "'B'"
