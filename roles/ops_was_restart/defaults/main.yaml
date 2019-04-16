@@ -1,0 +1,4 @@
+---
+#file: roles/ops_was_restart/defaults/main.yaml
+restart_script_path: /usr/local/scripts/WAS85_startup_script_ops/WAS_JVM_Restart
+jvm_name: "'stationCom01'"
