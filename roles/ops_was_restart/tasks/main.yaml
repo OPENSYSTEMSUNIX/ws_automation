@@ -23,5 +23,5 @@
     import_role:
         name: slack
     vars:
-        payload: "*** Completed {{ jvm_name }} restart on {{ inventory_hostname }}:\n {{ was_restart_out.stdout }}"
+        payload: "*** Completed {{ jvm_name }} JVM restart on {{ inventory_hostname }}:\n {{ was_restart_out.stdout }}"
     tags: slack
