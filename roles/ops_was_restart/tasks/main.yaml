@@ -8,7 +8,7 @@
     import_role:
         name: slack
     vars:
-        payload: '*** Starting {{ jvm_name }} on {{ inventory_hostname }} at {{ ws_date.stdout }}...'
+        payload: '*** restarting {{ jvm_name }} on {{ inventory_hostname }} at {{ ws_date.stdout }}...'
     tags: slack
 -
     name: 'was server restart'
