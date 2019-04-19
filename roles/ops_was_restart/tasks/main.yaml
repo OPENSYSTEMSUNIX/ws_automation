@@ -13,15 +13,15 @@
 -
     name: 'was server restart'
     shell: '{{ restart_script_path }} {{ jvm_name }} restart'
-    register: was_restart_out
+  #  register: was_restart_out
 -
     #name: 'restart output'
     #debug:
-    #    msg: '{{ was_restart_out.stdout_lines }}'
+  #      msg: '{{ was_restart_out.stdout_lines }}'
 -
     name: 'sending message to slack channel'
     import_role:
         name: slack
     vars:
-        payload: "*** Completed {{ jvm_name }} JVM restart on {{ inventory_hostname }}:\n {{ was_restart_out.stdout }}"
+        payload: "*** Completed {{ jvm_name }} JVM restart on {{ inventory_hostname }}"
     tags: slack
