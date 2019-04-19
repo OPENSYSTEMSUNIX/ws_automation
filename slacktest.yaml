@@ -1,0 +1,18 @@
+---
+- name: slack notification test
+  hosts: localhost
+  gather_facts: false
+  become: yes
+  vars:
+    - tokens:
+      - T8XFBCPUJ/BJ12HAASG/I28rNpMzddv63JYG6Z6KcmDp
+      - T8XFBCPUJ/BB5EN658B/N8kt3TJtki8GeedVvdcfRX45
+  tasks:
+    - name:
+      slack:
+        token: "{{ item }}"
+        msg: test multi channel
+        username: ansible
+        validate_certs: no
+      delegate_to: localhost
+      with_items: "{{ tokens }}"

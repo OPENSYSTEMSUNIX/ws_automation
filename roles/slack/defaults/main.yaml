@@ -1,3 +1,4 @@
 payload: 'message from {{ inventory_hostname }}'
-token: "T8XFBCPUJ/BB5EN658B/N8kt3TJtki8GeedVvdcfRX45"
+tokens: 
+  - "T8XFBCPUJ/BB5EN658B/N8kt3TJtki8GeedVvdcfRX45"
 slack_host: localhost

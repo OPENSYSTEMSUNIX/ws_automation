@@ -1,8 +1,9 @@
 ---
 - name: Sending message to slack channel
   slack:
-    token: "{{ token }}"
+    token: "{{ items }}"
     msg: "{{ payload }}"
     validate_certs: no
   delegate_to: "{{ slack_host }}"
   ignore_errors: yes
+  with_items: "{{ tokens }}"
