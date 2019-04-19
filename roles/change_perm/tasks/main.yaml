@@ -1,0 +1,30 @@
+---
+#file: roles/change_perm/tasks/main.yaml
+- name: get current date/time
+  command: date
+  register: ws_date
+  tags: ws_date
+
+- name: sending message to slack channel
+  import_role:
+    name: slack
+  vars:
+   payload: "*** Started the task of change permissions on installedApps at {{installed_apps_path}} on server  {{ inventory_hostname }} at {{ ws_date.stdout }}..."
+  tags: slack
+
+- name:  change permissions on installedApps
+#become: yes
+#become_user: root
+  command: chmod -R 777 {{installed_apps_path}}
+  register: change_perm_out
+
+- name: perm output
+  debug:
+    msg: "{{ change_perm_out.stdout_lines }}"
+
+- name: sending message to slack channel
+  import_role:
+    name: slack
+  vars:
+    payload: "*** Completed change permissions on installedApps at {{installed_apps_path}} on server  {{ inventory_hostname }}:\n {{ change_perm_out.stdout }}"
+  tags: slack

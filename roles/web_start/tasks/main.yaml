@@ -1,0 +1,30 @@
+---
+#file: roles/web_start/tasks/main.yaml
+- name: get current date/time
+  command: date
+  register: ws_date
+  tags: ws_date
+
+- name: sending message to slack channel
+  import_role:
+    name: slack
+  vars:
+   payload: "*** Starting Webserver on {{ inventory_hostname }} at {{ ws_date.stdout }}..."
+  tags: slack
+
+- name: webserver start
+#become: yes
+#become_user: root
+  shell: '{{ script_path }}'
+  register: web_start_out
+
+- name: start output
+  debug:
+    msg: "{{ web_start_out.stdout_lines }}"
+
+- name: sending message to slack channel
+  import_role:
+    name: slack
+  vars:
+    payload: "*** Completed webserver start on {{ inventory_hostname }}:\n {{ web_start_out.stdout }}"
+  tags: slack

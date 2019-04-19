@@ -1,4 +1,4 @@
 ---
 #file: roles/list_apps/defaults/main.yaml
-wsadmin_path: /usr/local/WebSphere7/AppServer/profiles/Dmgr01/bin/wsadmin.sha
+wsadmin_path: /usr/local/WebSphere7/AppServer/profiles/Dmgr01/bin/wsadmin.sh
 ws_script: /usr/local/scripts/fix_BranchFTNP_virtualhost_mapping

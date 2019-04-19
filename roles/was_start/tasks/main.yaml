@@ -1,0 +1,27 @@
+-
+    name: 'get current date/time'
+    command: date
+    register: ws_date
+    tags: ws_date
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: '*** Starting {{ jvm_name }} on {{ inventory_hostname }} at {{ ws_date.stdout }}...'
+    tags: slack
+-
+    name: 'was server start'
+    shell: '{{ start_script_path }} -profileName {{profile}} {{ jvm_name }}'
+    register: was_start_out
+-
+    name: 'start output'
+    debug:
+        msg: '{{ was_start_out.stdout_lines }}'
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: "*** Completed {{ jvm_name }} start on {{ inventory_hostname }}:\n {{ was_start_out.stdout }}"
+    tags: slack

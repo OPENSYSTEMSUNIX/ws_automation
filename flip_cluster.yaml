@@ -1,0 +1,7 @@
+---
+#file: flip_cluster.yaml
+- name: flip A/B cluster
+  hosts: all
+  gather_facts: false
+  roles:
+    - flip_cluster

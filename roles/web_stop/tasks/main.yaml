@@ -1,0 +1,30 @@
+---
+#file: roles/web_stop/tasks/main.yaml
+- name: get current date/time
+  command: date
+  register: ws_date
+  tags: ws_date
+
+- name: sending message to slack channel
+  import_role:
+    name: slack
+  vars:
+   payload: "*** Stopping Webserver on {{ inventory_hostname }} at {{ ws_date.stdout }}..."
+  tags: slack
+
+- name: webserver stop
+#become: yes
+#become_user: root
+  shell: '{{ script_path }}'
+  register: web_stop_out
+
+- name: stop output
+  debug:
+    msg: "{{ web_stop_out.stdout_lines }}"
+
+- name: sending message to slack channel
+  import_role:
+    name: slack
+  vars:
+    payload: "*** Completed webserver stop on {{ inventory_hostname }}:\n {{ web_stop_out.stdout }}"
+  tags: slack

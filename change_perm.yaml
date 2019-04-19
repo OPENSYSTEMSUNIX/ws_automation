@@ -1,0 +1,7 @@
+---
+#file: change_perm.yaml
+- name: Changing permissions on Installed Apps directories
+  hosts: all
+  gather_facts: false
+  roles:
+    - change_perm

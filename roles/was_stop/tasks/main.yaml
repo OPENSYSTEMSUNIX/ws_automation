@@ -1,0 +1,27 @@
+-
+    name: 'get current date/time'
+    command: date
+    register: ws_date
+    tags: ws_date
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: '*** stopping {{ jvm_name }} on {{ inventory_hostname }} at {{ ws_date.stdout }}...'
+    tags: slack
+-
+    name: 'was_server stop'
+    shell: '{{ stop_script_path }} -profileName {{profile}} {{ jvm_name }} -username {{user}} -password {{pwd}}'
+    register: was_stop_out
+-
+    name: 'stop output'
+    debug:
+        msg: '{{ was_stop_out.stdout_lines }}'
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: "*** Completed app server stop on {{ inventory_hostname }}:\n {{ was_stop_out.stdout }}"
+    tags: slack
