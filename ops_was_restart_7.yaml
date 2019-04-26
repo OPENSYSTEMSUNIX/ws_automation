@@ -4,4 +4,4 @@
   hosts: all
   gather_facts: false
   roles:
-    - ops_was_restart
+    - ops_was_restart_7

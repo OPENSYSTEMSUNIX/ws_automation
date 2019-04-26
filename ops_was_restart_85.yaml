@@ -1,0 +1,7 @@
+---
+#file: was_start.yaml
+- name: RC deployment stop and start
+  hosts: all
+  gather_facts: false
+  roles:
+    - ops_was_restart_85

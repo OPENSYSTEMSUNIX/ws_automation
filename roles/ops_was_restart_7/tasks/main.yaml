@@ -1,0 +1,27 @@
+-
+    name: 'get current date/time'
+    command: date
+    register: ws_date
+    tags: ws_date
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: '*** restarting {{ jvm_name }} on {{ inventory_hostname }} at {{ ws_date.stdout }}...'
+    tags: slack
+-
+    name: 'was server restart'
+    shell: '{{ restart_script_path }} {{ jvm_name }} restart'
+  #  register: was_restart_out
+-
+    #name: 'restart output'
+    #debug:
+  #      msg: '{{ was_restart_out.stdout_lines }}'
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: "*** Completed {{ jvm_name }} JVM restart on {{ inventory_hostname }}"
+    tags: slack
