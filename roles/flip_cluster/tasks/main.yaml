@@ -11,17 +11,13 @@
         payload: '*** Flipping {{ appname }} on {{ inventory_hostname }} to cluster {{cluster_name}} {{ ws_date.stdout }}...'
     tags: slack
 -
-    name: ' flip cluster'
-    shell: '{{ flip_script_path }} {{appname}} {{ cluster_name }}'
-    register: flip_cluster_out
--
-    name: 'flip output'
-    debug:
-        msg: '{{ flip_cluster_out.stdout_lines }}'
+    name: 'flip cluster'
+    shell: '{{ flip_script_path }}'
+
 -
     name: 'sending message to slack channel'
     import_role:
         name: slack
     vars:
-        payload: "*** Status of  flipping and graceful restart {{ appname }}  on {{ inventory_hostname }}:\n {{ flip_cluster_out.stdout }}"
+        payload: "{{appname}} has been flipped to cluster {{cluster_name}}"
     tags: slack

@@ -1,5 +1,5 @@
 ---
 #file: roles/flip_cluster/defaults/main.yaml
-flip_script_path: /usr/local/scripts/flip_cluster.sh
+flip_script_path: /usr/local/scripts/flip_CCP_to_Cluster_B.sh
 appname: "'CoreCCP'"
 cluster_name: "'B'"
