@@ -1,0 +1,9 @@
+---
+#file: rc_sch_deply.yaml
+- name: RC Scheduler deployment role
+  hosts: all
+  gather_facts: false
+  roles:
+    - was_deply
+    - config_save
+    - was_sync
