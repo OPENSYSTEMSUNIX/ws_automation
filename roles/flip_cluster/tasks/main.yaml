@@ -19,5 +19,5 @@
     import_role:
         name: slack
     vars:
-        payload: "{{appname}} has been flipped to cluster {{cluster_name}}"
+        payload: "{{appname}} has been flipped to cluster {{cluster_name}} on {{ inventory_hostname }}"
     tags: slack
