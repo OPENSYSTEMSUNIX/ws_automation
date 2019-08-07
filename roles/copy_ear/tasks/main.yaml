@@ -1,0 +1,27 @@
+-
+    name: 'get current date/time'
+    command: date
+    register: ws_date
+    tags: ws_date
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: '*** copying ear file before starting the deployment'
+    tags: slack
+-
+    name: 'ear file copy'
+    shell: '{{ ear_copy_path }}'
+    register: ear_copy_out
+-
+    name: 'copy script output'
+    debug:
+        msg: '{{ ear_copy_out.stdout_lines }}'
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: "*** Completed this task ***{{ ear_copy_out.stdout }} "
+    tags: slack
