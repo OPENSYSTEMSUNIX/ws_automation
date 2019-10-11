@@ -1,30 +1,29 @@
 ---
-#file: roles/web_stop/tasks/main.yaml
+#file: roles/docker_pull/tasks/main.yaml
 - name: get current date/time
   command: date
   register: ws_date
   tags: ws_date
 
-- name: sending message to slack channel
-  import_role:
-    name: slack
-  vars:
-   payload: "*** Stopping Webserver on {{ inventory_hostname }} at {{ ws_date.stdout }}..."
-  tags: slack
+- name: Log into private registry and force re-authorization
+  docker_login:
+    registry: {{registry_name}}
+    username: {{user}}
+    password: {{pass}}
+    reauthorize: yes
 
-- name: webserver stop
-#become: yes
-#become_user: root
-  shell: '{{ script_path }}'
-  register: web_stop_out
-
-- name: stop output
-  debug:
-    msg: "{{ web_stop_out.stdout_lines }}"
+- name: pull image from github docker repo
+  docker_image:
+    name: {{image_name}}
+    repository: {{repository_url}}
+    tag: {{tag_name}}
+    pull: yes
 
 - name: sending message to slack channel
   import_role:
     name: slack
   vars:
-    payload: "*** Completed webserver stop on {{ inventory_hostname }}:\n {{ web_stop_out.stdout }}"
+    payload: |
+          Completed pulling the image `{{repository_url}}/{{image_name}}:{{tag_name}}` on    `{{ inventory_hostname }}`
+    clr: good
   tags: slack

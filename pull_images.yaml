@@ -1,7 +1,8 @@
 ---
-#file: web_stop.yaml
-- name: RC deployment stop and start
+#file: pull_images.yaml
+- name: pulling docker images from github repository
   hosts: all
+  #no_log: True
   gather_facts: false
   roles:
-    - web_stop
+    - docker_pull
