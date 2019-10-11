@@ -7,16 +7,16 @@
 
 - name: Log into private registry and force re-authorization
   docker_login:
-    registry: '{{registry_name}}'
-    username: '{{user}}'
-    password: '{{pass}}'
+    registry: "{{registry_name}}"
+    username: "{{user}}"
+    password: "{{pass}}"
     reauthorize: yes
 
 - name: pull image from github docker repo
   docker_image:
-    name: '{{image_name}}'
-    repository: '{{repository_url}}'
-    tag: '{{tag_name}}'
+    name: "{{image_name}}"
+    repository: "{{repository_url}}"
+    tag: "{{tag_name}}"
     pull: yes
 
 - name: sending message to slack channel
