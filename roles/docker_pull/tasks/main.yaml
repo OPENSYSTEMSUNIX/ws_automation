@@ -24,6 +24,7 @@
     name: slack
   vars:
     payload: |
-          Completed pulling the image `{{image_name}}` on    `{{ inventory_hostname }}`
+          Completed pulling the image `{{image_name}}`
+          on    `{{ inventory_hostname }}`
     clr: good
   tags: slack
