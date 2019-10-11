@@ -1,6 +1,6 @@
 ---
 #file: pip_install.yaml
-- name: download pip
+- name: download
   hosts: all
   gather_facts: false
   command: "{{item}}"
@@ -8,4 +8,4 @@
   - curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
   - python get-pip.py
   - pip install docker.py
-  register: download_out
+  
