@@ -15,7 +15,6 @@
 - name: pull image from github docker repo
   docker_image:
     name: "{{image_name}}"
-    repository: "{{repository_url}}"
     tag: "{{tag_name}}"
     pull: yes
 
@@ -24,6 +23,6 @@
     name: slack
   vars:
     payload: |
-          Completed pulling the image `{{repository_url}}/{{image_name}}:{{tag_name}}` on    `{{ inventory_hostname }}`
+          Completed pulling the image `{{image_name}}:{{tag_name}}` on    `{{ inventory_hostname }}`
     clr: good
   tags: slack
