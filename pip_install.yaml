@@ -3,8 +3,4 @@
 - hosts: all
   tasks:
   - name: download
-    command: " {{ item }}"
-    with_items:
-      - curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-      - python get-pip.py
-      - pip install docker.py
+    shell: /root/install_pip.sh
