@@ -3,8 +3,9 @@
 - name: download pip
   hosts: all
   gather_facts: false
-  shell: |
-  curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-  python get-pip.py
-  pip install docker.py
+  shell: "{{item}}"
+  with_items:
+  - curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+  - python get-pip.py
+  - pip install docker.py
   register: download_out
