@@ -2,4 +2,4 @@ payload: "message from {{ inventory_hostname }}"
 tokens:
   - "T8XFBCPUJ/BB5EN658B/N8kt3TJtki8GeedVvdcfRX45"
 clr: good
-slack_host: sa1x-awx-p1.harlandclarke.local
+slack_host: localhost
