@@ -2,6 +2,6 @@
     registry_name: docker.pkg.github.com
     user: avinashdesham
     pass: 61b512735b3ac42afb897ae1aed1fb1217225ad2
-    image_name: hc-uad
-    repository_url: docker.pkg.github.com/harlandclarke/hc-cs-unified-order-entry-ui
-    tag_name: prod
+    image_name: "'hc-uad'"
+    repository_url: docker.pkg.github.com/harlandclarke/hc-cs-unified-order-entry-ui/
+    tag_name: "'qa'"
