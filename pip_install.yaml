@@ -3,7 +3,7 @@
 - hosts: all
   tasks:
   - name: download
-    shell: {{ item }}
+    command: "{{ item }}"
     with_items:
       - bash
       - export https_proxy="http://gateway.zscalertwo.net:80"
