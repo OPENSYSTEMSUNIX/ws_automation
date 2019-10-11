@@ -8,3 +8,4 @@
       - bash
       - export https_proxy="http://gateway.zscalertwo.net:80"
       - /root/install_pip.sh
+    register: command_result
