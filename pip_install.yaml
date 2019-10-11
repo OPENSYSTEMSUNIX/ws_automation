@@ -1,0 +1,19 @@
+---
+#file: pip_install.yaml
+- name: download pip.py
+  hosts: all
+  gather_facts: false
+  shell: curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+  register: download_out
+
+- name: install pip.py
+  hosts: all
+  gather_facts: false
+  shell: python get-pip.py
+  register: install-pip_out
+
+- name: download docker.py
+  hosts: all
+  gather_facts: false
+  shell: pip install docker.py
+  register: install-dockerpy_out    
