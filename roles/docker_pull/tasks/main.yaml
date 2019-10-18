@@ -15,8 +15,8 @@
 - name: pull image from github docker repo
   docker_image:
     name: "{{image_name}}"
-  #  tag: "{{tag_name}}"
-  #  repository: "{{repository_url}}"
+    tag: "{{tag_name}}"
+    repository: "{{repository_url}}"
     pull: yes
 
 - name: sending message to slack channel
