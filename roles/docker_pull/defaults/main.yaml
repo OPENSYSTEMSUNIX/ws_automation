@@ -1,7 +1,14 @@
 ---
     registry_name: docker.pkg.github.com
     user: avinashdesham
+<<<<<<< HEAD
     pass: e22bccbab7beed6aa12a23eb8b64ac51f08d4de5
     image_name: hc-integration
     repository_url: docker.pkg.github.com/harlandclarke/hc-cs-unified-order-entry-ui
     tag_name: qa
+=======
+    pass: 3f306b5cd730c066a70367ee50037fcc25411de4
+    image_name: docker.pkg.github.com/harlandclarke/hc-cs-unified-order-entry-integration/hc-integration:qa
+  #  repository_url: docker.pkg.github.com/harlandclarke/hc-cs-unified-order-entry-ui/
+  #  tag_name: qa
+>>>>>>> 2a561bf4911c1bb7a89d2b9b92b6808ee4f082fd
