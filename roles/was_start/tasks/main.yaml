@@ -24,4 +24,5 @@
         name: slack
     vars:
         payload: "*** Completed {{ jvm_name }} start on {{ inventory_hostname }}:\n {{ was_start_out.stdout }}"
+        clr: good
     tags: slack

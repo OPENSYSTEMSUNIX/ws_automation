@@ -27,4 +27,5 @@
     name: slack
   vars:
     payload: "*** Completed webserver stop on {{ inventory_hostname }}:\n {{ web_stop_out.stdout }}"
+    clr: danger
   tags: slack

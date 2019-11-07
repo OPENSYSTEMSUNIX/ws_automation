@@ -27,4 +27,5 @@
      name: slack
   vars:
     payload: "*** Completed uninstalling {{ app_name }} on {{ inventory_hostname }}:\n {{ uninstall_out.stdout }}"
+    clr: danger
   tags: slack

@@ -27,4 +27,5 @@
     name: slack
   vars:
     payload: "*** Completed was sync on {{ inventory_hostname }}:\n {{ was_sync_out.stdout }}"
+    clr: warning
   tags: slack

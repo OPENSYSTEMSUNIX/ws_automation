@@ -25,4 +25,5 @@
     name: slack
   vars:
     payload: "*** Completed app install {{ app_name }} on {{ inventory_hostname }}:\n {{ was_deply_out.stdout }}"
+    clr: good
   tags: slack
