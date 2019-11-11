@@ -9,16 +9,16 @@
   command: date
   register: cur_date
   tags: cur_date
-  
-tasks:
-  - name: slack completed deployment of resources
-    import_role:
-      name: slack
-    vars:
-      payload: |
-        ************#########################*************
-        Completed deployment of current workflow at:
-            `{{ cur_date.stdout }}`
-        ************#########################*************
-      clr: good
-    tags: slack,skip
+
+- tasks:
+   - name: slack completed deployment of resources
+     import_role:
+       name: slack
+     vars:
+       payload: |
+         ************#########################*************
+         Completed deployment of current workflow at:
+             `{{ cur_date.stdout }}`
+         ************#########################*************
+       clr: good
+     tags: slack,skip
