@@ -3,7 +3,7 @@
   hosts: all
   become: yes
   gather_facts: no
-  
+
   tasks:
 
     - name: get current date/time
@@ -20,5 +20,5 @@
          Completed deployment of current workflow at:
              `{{ cur_date.stdout }}`
          ************#########################*************
-        clr: warning
+        clr: good
       tags: slack,skip
