@@ -1,0 +1,27 @@
+-
+    name: 'get current date/time'
+    command: date
+    register: ws_date
+    tags: ws_date
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: '*** executing the shell script {{ shell_path }} '
+    tags: slack
+-
+    name: 'executing shell script'
+    shell: '{{ shell_path }}'
+    register: shell_script_out
+-
+    name: 'shell script output'
+    debug:
+        msg: '{{ shell_script_out.stdout_lines }}'
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: "*** Completed this task ***{{ shell_script.stdout }} "
+    tags: slack

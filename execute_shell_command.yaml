@@ -1,0 +1,5 @@
+- name: Execute a shell command
+  hosts: all
+  gather_facts: false
+  roles:
+    - shell_command
