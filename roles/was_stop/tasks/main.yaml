@@ -14,6 +14,7 @@
     name: 'was_server stop'
     shell: '{{ stop_script_path }} -profileName {{profile}} {{ jvm_name }} -username {{user}} -password {{pwd}}'
     register: was_stop_out
+    ignore_errors: yes
 -
     name: 'stop output'
     debug:
