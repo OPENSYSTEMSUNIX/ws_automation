@@ -1,0 +1,5 @@
+---
+#file: roles/was_deploy/defaults/main.yaml
+wsadmin_path: /usr/local/WebSphere7/AppServer/profiles/Dmgr01/bin/wsadmin.sh
+app_install: /usr/local/scripts/Automated-RC_Scheduler-Jython-Install
+app_name: "'RC_Scheduler'"
