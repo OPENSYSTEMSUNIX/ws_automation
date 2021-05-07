@@ -16,6 +16,7 @@
   shell: '{{ wsadmin_path }} -lang jython -c "{{ uninstall_app }}"'
   register: uninstall_out
   tags: unisnt
+  ignore_errors: yes  
 
 - name: uninstall output
   debug:
