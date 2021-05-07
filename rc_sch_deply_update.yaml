@@ -5,6 +5,9 @@
   gather_facts: false
   roles:
     - copy_ear
+    - was_uninstall
+    - config_save
+    - was_sync
     - was_deply
     - config_save
     - was_sync
