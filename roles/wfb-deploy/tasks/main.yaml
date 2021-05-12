@@ -1,0 +1,29 @@
+-
+    name: 'get current date/time'
+    command: date
+    register: ws_date
+    tags: ws_date
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: '*** deploying wells fargo bonus offer {{ version }} '
+    tags: slack
+-
+    name: 'wfb deployment'
+    shell: '{{ script_path }}  {{ version }}'
+    register: wfb_deploy_out
+    #ignore_errors: yes
+-
+    name: 'wfb_deploy output'
+    debug:
+        msg: '{{ wfb_deploy_out.stdout_lines }}'
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: "*** Completed wells fargo bonus offer deployment of version {{ version }}:\n {{ wfb_deploy_out.stdout }}"
+        clr: good
+    tags: slack

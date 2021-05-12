@@ -1,0 +1,4 @@
+---
+#file: roles/wfb-deploy/defaults/main.yaml
+script_path: /mware_deployments/Template/b_template_sync.sh
+version: "'v2.0.3.90'"
