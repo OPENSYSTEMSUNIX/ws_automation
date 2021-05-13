@@ -1,5 +1,5 @@
 ---
 #file: roles/wfb-deploy/defaults/main.yaml
-deploy_type: Template
-text_path: /mware_deployments
+deploy_type: BonusOfferPageTemplate
+text_path: /mware_deployments/Template
 version: "v2.0.3.90"
