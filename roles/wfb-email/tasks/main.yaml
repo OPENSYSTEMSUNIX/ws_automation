@@ -15,7 +15,7 @@
       - avinash.desham@vericast.com
       - ratnakar.dudala@vericast.com
       attach:
-      - {{ text_path }}/{{ deploy_type }}/BonusOfferPage{{ deploy_type }}-{{ version }}-pre.txt
+      - '{{ text_path }}/{{ deploy_type }}/BonusOfferPage{{ deploy_type }}-{{ version }}-pre.txt'
       headers:
       - Reply-To=middleware@vericast.com
       - X-Special="This is to review the diff report before committing the changes"
