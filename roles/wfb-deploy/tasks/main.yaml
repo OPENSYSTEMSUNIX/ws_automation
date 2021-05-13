@@ -12,7 +12,7 @@
     tags: slack
 -
     name: 'wfb deployment'
-    shell: '{{ script_path }}  {{ version }}'
+    shell: '{{ script_path }} {{ version }}'
     register: wfb_deploy_out
     #ignore_errors: yes
 -
