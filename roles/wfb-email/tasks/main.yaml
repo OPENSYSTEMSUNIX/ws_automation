@@ -12,6 +12,10 @@
       body: Please Find the attached Diff report
       from: wfb@vericast.com 
       to:
+      - avinash.desham@vericast.com
+      - ratnakar.dudala@vericast.com
+      - brian.anderson@vericast.com
+      - marc.dicarlo@vericat.com
       - george.arellano@harlandclarke.com
       cc: middleware@vericast.com
       attach:
