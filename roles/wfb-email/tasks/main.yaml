@@ -1,0 +1,23 @@
+-
+    name: 'get current date/time'
+    command: date
+    register: ws_date
+    tags: ws_date
+- 
+    name: Send Emails to a bunch of users, with Playbook Report as an attachment.
+    mail:
+      host: localhost
+      port: 25
+      subject: WFB Diff report for Bonus offer {{ deploy_type }} of version {{ version }}
+      body: Please Find the attached Diff report
+      from: wfb@vericast.com 
+      to:
+      - avinash.desham@vericast.com
+      - ratnakar.dudala@vericast.com
+      attach:
+      - {{ text_path }}/{{ deploy_type }}/BonusOfferPage{{ deploy_type }}-{{ version }}-pre.txt
+      headers:
+      - Reply-To=middleware@vericast.com
+      - X-Special="This is to review the diff report before committing the changes"
+      charset: us-ascii
+    delegate_to: localhost
