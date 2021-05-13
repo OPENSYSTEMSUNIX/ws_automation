@@ -2,11 +2,11 @@
     name: 'get current date/time'
     command: date
     register: ws_date
-    tags: ws_date
+    tags: ws_date    
 - 
     name: Send Emails to a bunch of users, with Playbook Report as an attachment.
     mail:
-      host: '{{ inventory_hostname }}'
+      host: pmta.hchgrp.com
       port: 25
       subject: WFB Diff report for Bonus offer {{ deploy_type }} of version {{ version }}
       body: Please Find the attached Diff report
