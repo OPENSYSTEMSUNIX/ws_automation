@@ -12,8 +12,8 @@
       body: Please Find the attached Diff report
       from: wfb@vericast.com 
       to:
-      - avinash.desham@vericast.com
-      - ratnakar.dudala@vericast.com
+      - george.arellano@harlandclarke.com
+      cc: middleware@vericast.com
       attach:
       - '{{ text_path }}/{{ deploy_type }}/BonusOfferPage{{ deploy_type }}-{{ version }}-pre.txt'
       headers:
