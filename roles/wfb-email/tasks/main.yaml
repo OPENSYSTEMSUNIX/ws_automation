@@ -6,7 +6,7 @@
 - 
     name: Send Emails to a bunch of users, with Playbook Report as an attachment.
     mail:
-      host: localhost
+      host: '{{ inventory_hostname }}'
       port: 25
       subject: WFB Diff report for Bonus offer {{ deploy_type }} of version {{ version }}
       body: Please Find the attached Diff report
@@ -20,4 +20,4 @@
       - Reply-To=middleware@vericast.com
       - X-Special="This is to review the diff report before committing the changes"
       charset: us-ascii
-    delegate_to: localhost
+    delegate_to: '{{ inventory_hostname }}'
