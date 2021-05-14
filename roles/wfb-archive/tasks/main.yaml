@@ -4,15 +4,10 @@
     register: ws_date
     tags: ws_date
 
-- 
-#    name: move tar
-#    stat: path= '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.tar.gz'
-#    register: tar_stat
-
 -   
     name: Move tar to archive
     shell: 'mv {{ text_path }}/{{ deploy_type }}-{{ version }}-pre.tar.gz {{ archive_path }}/{{ deploy_type }}-{{ version }}-pre.tar.gz'
-    #when: tar_stat.stat.exists
+
 
 -
     name: 'sending message to slack channel'
@@ -22,15 +17,12 @@
         payload: "*** Completed archiving of  {{ deploy_type }}-{{ version }}-pre.tar.gz "
         clr: good
     tags: slack
-- 
-    #name: move txt
-    #stat: path= '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.txt'
-    #register: txt_stat
+
 
 -   
     name: Move txt to archive
     shell: 'mv {{ text_path }}/{{ deploy_type }}-{{ version }}-pre.txt {{ archive_path }}/{{ deploy_type }}-{{ version }}-pre.txt'
-    #when: txt_stat.stat.exists
+
 
 -
     name: 'sending message to slack channel'
@@ -41,21 +33,17 @@
         clr: good
     tags: slack
 
-- 
-    #name: remove dir
-    #stat: path= '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre'
-    #register: dir_stat
 
 -   
     name: remove dir from deployment
     shell: 'rm -rf {{ text_path }}/{{ deploy_type }}-{{ version }}-pre'
-    #when: dir_stat.stat.exists
+
 
 -
     name: 'sending message to slack channel'
     import_role:
         name: slack
     vars:
-        payload: "*** Completed removal of  {{ deploy_type }}-{{ version }}-pre "
+        payload: "*** Completed removal of  {{ deploy_type }}-{{ version }}-pre from deployment directory"
         clr: good
     tags: slack    
