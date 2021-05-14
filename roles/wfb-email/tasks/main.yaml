@@ -12,9 +12,9 @@
       body: Please Find the attached Diff report
       from: wfb@vericast.com 
       to:
-      #- george.arellano@harlandclarke.com
+      - george.arellano@harlandclarke.com
       - avinash.desham@vericast.com      
-      #cc: middleware@harlandclarke.com
+      cc: middleware@harlandclarke.com
       attach:
       - '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.txt'
       headers:

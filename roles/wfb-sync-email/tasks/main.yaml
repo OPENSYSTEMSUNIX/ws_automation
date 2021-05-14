@@ -12,9 +12,9 @@
       body: WFB {{ deploy_type }} of version {{ version }} Synchronization is complete at `{{ ws_date.stdout }}`
       from: wfb@vericast.com 
       to:
-      #- george.arellano@harlandclarke.com
+      - george.arellano@harlandclarke.com
       - avinash.desham@vericast.com      
-      #cc: middleware@harlandclarke.com
+      cc: middleware@harlandclarke.com
       headers:
       - Reply-To=middleware@harlandclarke.com
       - X-Special="This is to confirm the Syncronization of changes is complete"
