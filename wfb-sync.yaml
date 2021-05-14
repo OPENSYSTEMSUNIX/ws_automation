@@ -5,3 +5,5 @@
   gather_facts: false
   roles:
     - wfb-sync
+    - wfb-sync-email
+    - wfb-archive

@@ -8,17 +8,15 @@
     mail:
       host: pmta.hchgrp.com
       port: 25
-      subject: WFB Diff report for Bonus offer {{ deploy_type }} of version {{ version }}
-      body: Please Find the attached Diff report
+      subject: WFB {{ deploy_type }} of version {{ version }} Synchronization is complete
+      body: WFB {{ deploy_type }} of version {{ version }} Synchronization is complete at `{{ ws_date.stdout }}`
       from: wfb@vericast.com 
       to:
       #- george.arellano@harlandclarke.com
       - avinash.desham@vericast.com      
       #cc: middleware@harlandclarke.com
-      attach:
-      - '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.txt'
       headers:
       - Reply-To=middleware@harlandclarke.com
-      - X-Special="This is to review the diff report before committing the changes"
+      - X-Special="This is to confirm the Syncronization of changes is complete"
       charset: us-ascii
     delegate_to: '{{ inventory_hostname }}'

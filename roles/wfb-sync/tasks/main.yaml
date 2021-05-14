@@ -11,7 +11,7 @@
         payload: '*** syncing wells fargo bonus offer {{ version }} '
     tags: slack
 -
-    name: 'wfb syncment'
+    name: 'wfb sync'
     shell: '{{ script_path }}  {{ version }}'
     register: wfb_sync_out
     #ignore_errors: yes
