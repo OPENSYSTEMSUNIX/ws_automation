@@ -5,14 +5,14 @@
     tags: ws_date
 
 - 
-    name: move tar
-    stat: path= '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.tar.gz'
-    register: tar_stat
+#    name: move tar
+#    stat: path= '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.tar.gz'
+#    register: tar_stat
 
 -   
     name: Move tar to archive
     command: mv '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.tar.gz {{ archive_path }}/'
-    when: tar_stat.stat.exists
+    #when: tar_stat.stat.exists
 
 -
     name: 'sending message to slack channel'
@@ -23,14 +23,14 @@
         clr: good
     tags: slack
 - 
-    name: move txt
-    stat: path= '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.txt'
-    register: txt_stat
+    #name: move txt
+    #stat: path= '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.txt'
+    #register: txt_stat
 
 -   
     name: Move txt to archive
     command: mv '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.txt {{ archive_path }}/'
-    when: txt_stat.stat.exists
+    #when: txt_stat.stat.exists
 
 -
     name: 'sending message to slack channel'
@@ -42,14 +42,14 @@
     tags: slack
 
 - 
-    name: remove dir
-    stat: path= '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre'
-    register: dir_stat
+    #name: remove dir
+    #stat: path= '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre'
+    #register: dir_stat
 
 -   
     name: remove dir from deployment
     command: rm -rf '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre'
-    when: dir_stat.stat.exists
+    #when: dir_stat.stat.exists
 
 -
     name: 'sending message to slack channel'
