@@ -11,7 +11,7 @@
 
 -   
     name: Move tar to archive
-    command: mv '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.tar.gz {{ archive_path }}/'
+    command: mv '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.tar.gz {{ archive_path }}/{{ deploy_type }}-{{ version }}-pre.tar.gz'
     #when: tar_stat.stat.exists
 
 -
@@ -29,7 +29,7 @@
 
 -   
     name: Move txt to archive
-    command: mv '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.txt {{ archive_path }}/'
+    command: mv '{{ text_path }}/{{ deploy_type }}-{{ version }}-pre.txt {{ archive_path }}/{{ deploy_type }}-{{ version }}-pre.txt'
     #when: txt_stat.stat.exists
 
 -
