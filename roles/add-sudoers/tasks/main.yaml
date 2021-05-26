@@ -1,0 +1,11 @@
+-
+    name: 'get current date/time'
+    command: date
+    register: ws_date
+    tags: ws_date
+-
+    name: Insert a line at the end of a file.
+    lineinfile:
+      path: /etc/sudoers
+      line: '{{ line_insert }}' 
+
