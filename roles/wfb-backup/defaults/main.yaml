@@ -1,0 +1,8 @@
+---
+#file: roles/wfb-backup/defaults/main.yaml
+script_path: /mware_deployments/Template/b_template_deploy.sh
+version: "v2.0.3.90"
+deploy_type: BonusOfferPageTemplate
+text_path: /mware_deployments/Template
+backup_script: /mware_deployments/Template/backup_template.sh
+restore_script: /mware_deployments/Template/revert_template.sh

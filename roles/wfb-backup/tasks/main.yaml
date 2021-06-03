@@ -1,0 +1,29 @@
+-
+    name: 'get current date/time'
+    command: date
+    register: ws_date
+    tags: ws_date
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: '*** Backup of wells fargo bonus offer'
+    tags: slack
+-
+    name: 'wfb deployment backup'
+    shell: '{{ backup_script }}'
+    register: wfb_backup_out
+    #ignore_errors: yes
+-
+    name: 'wfb_backup output'
+    debug:
+        msg: '{{ wfb_backup_out.stdout_lines }}'
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: "*** Completed wells fargo bonus offer backup:\n {{ wfb_backup_out.stdout }}"
+        clr: good
+    tags: slack

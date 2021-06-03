@@ -1,0 +1,7 @@
+---
+#file: wfb-restore.yaml
+- name: wells fargo bonus offer restore 
+  hosts: all
+  gather_facts: false
+  roles:
+    - wfb-restore

@@ -1,0 +1,29 @@
+-
+    name: 'get current date/time'
+    command: date
+    register: ws_date
+    tags: ws_date
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: '*** restore of wells fargo bonus offer'
+    tags: slack
+-
+    name: 'wfb deployment restore'
+    shell: '{{ restore_script }}'
+    register: wfb_restore_out
+    #ignore_errors: yes
+-
+    name: 'wfb_restore output'
+    debug:
+        msg: '{{ wfb_restore_out.stdout_lines }}'
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: "*** Completed wells fargo bonus offer restore:\n {{ wfb_restore_out.stdout }}"
+        clr: good
+    tags: slack
