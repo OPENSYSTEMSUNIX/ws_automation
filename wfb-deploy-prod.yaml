@@ -1,0 +1,8 @@
+---
+#file: wfb-sync.yaml
+- name: well fargo bonus offer deployment
+  hosts: all
+  gather_facts: false
+  roles:
+    - wfb-deploy
+    - wfb-email-prod
