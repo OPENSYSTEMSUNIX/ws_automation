@@ -1,0 +1,7 @@
+---
+#file: roles/wfb-deploy/defaults/main.yaml
+script_path: /mware_deployments/Template/b_template_deploy.sh
+version: "v2.0.3.90"
+deploy_type: BonusOfferPageTemplate
+text_path: /mware_deployments/Template
+archive_path: /mware_deployments/archive/Template

@@ -1,0 +1,49 @@
+-
+    name: 'get current date/time'
+    command: date
+    register: ws_date
+    tags: ws_date
+
+-   
+    name: Move tar to archive
+    shell: 'mv {{ text_path }}/{{ deploy_type }}-{{ version }}.tar.gz {{ archive_path }}/{{ deploy_type }}-{{ version }}.tar.gz'
+
+
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: "*** Completed archiving of  {{ deploy_type }}-{{ version }}.tar.gz "
+        clr: good
+    tags: slack
+
+
+-   
+    name: Move txt to archive
+    shell: 'mv {{ text_path }}/{{ deploy_type }}-{{ version }}.txt {{ archive_path }}/{{ deploy_type }}-{{ version }}.txt'
+
+
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: "*** Completed archiving of  {{ deploy_type }}-{{ version }}.txt "
+        clr: good
+    tags: slack
+
+
+-   
+    name: remove dir from deployment
+    shell: 'rm -rf {{ text_path }}/{{ deploy_type }}-{{ version }}'
+
+
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: "*** Completed removal of  {{ deploy_type }}-{{ version }} from deployment directory"
+        clr: good
+    tags: slack    
