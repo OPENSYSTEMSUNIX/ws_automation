@@ -1,0 +1,27 @@
+-
+    name: 'get current date/time'
+    command: date
+    register: ws_date
+    tags: ws_date
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: '*** copying jar file before starting the deployment'
+    tags: slack
+-
+    name: 'jar file copy'
+    shell: '{{ jar_copy_path }}'
+    register: jar_copy_out
+-
+    name: 'copy script output'
+    debug:
+        msg: '{{ jar_copy_out.stdout_lines }}'
+-
+    name: 'sending message to slack channel'
+    import_role:
+        name: slack
+    vars:
+        payload: "*** Completed this task ***{{ jar_copy_out.stdout }} "
+    tags: slack

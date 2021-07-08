@@ -1,0 +1,3 @@
+---
+#file: roles/ear_copy/defaults/main.yaml
+jar_copy_path: /usr/local/scripts/copy_jar.sh
