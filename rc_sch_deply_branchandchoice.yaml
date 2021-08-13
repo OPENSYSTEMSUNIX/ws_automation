@@ -7,3 +7,5 @@
     - was_deply
     - config_save
     - was_sync
+  become: yes
+  become_user: root  
