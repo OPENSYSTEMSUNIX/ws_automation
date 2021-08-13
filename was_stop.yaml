@@ -5,3 +5,5 @@
   gather_facts: false
   roles:
     - was_stop
+  become: yes
+  become_user: root  
