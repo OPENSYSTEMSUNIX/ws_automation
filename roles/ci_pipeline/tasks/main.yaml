@@ -1,7 +1,6 @@
----
-- name:
+- name: test command
   command: echo -n "foo"
-  
+
 - name: create tmp dir
   ansible.builtin.file:
     path: /tmp/ci_pipeline/
