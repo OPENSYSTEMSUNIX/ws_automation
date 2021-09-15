@@ -15,6 +15,6 @@
 
 
 - name: cleanup tmp dir
-  ansible.builtin.file:
+  file:
     path: /tmp/ci_pipeline/
     state: absent
