@@ -10,6 +10,7 @@
   get_url:
     url: https://www.gitlab.com/api/v4/projects/25427711/jobs/1586488246/artifacts
     dest: /tmp/ci_pipeline/artifacts.zip
+    verify: false
     headers:
       PRIVATE-TOKEN: "{{ token }}"
 
