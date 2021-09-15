@@ -1,0 +1,13 @@
+---
+#file: rc_sch_deply_ci_pl.yaml
+- name: RC Scheduler deployment role for ci pipeline
+  hosts: all
+  gather_facts: false
+  roles:
+   # - was_uninstall
+   # - config_save
+   # - was_sync
+   # - was_deply
+   # - config_save
+   # - was_sync
+   - ci_pipeline
