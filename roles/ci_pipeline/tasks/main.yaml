@@ -11,7 +11,7 @@
     url: gitlab.com/api/v4/projects/25427711/jobs/1586488246/artifacts
     dest: /tmp/ci_pipeline/artifacts.zip
     headers:
-      PRIVATE-TOKEN: "{{ faketoken }}"
+      PRIVATE-TOKEN: "{{ token }}"
 
 
 - name: cleanup tmp dir
