@@ -1,12 +1,9 @@
+---
 - name: create tmp dir
-  file:
-    path: /tmp/ci_pipeline/
-    state: directory
+  command: mkdir /tmp/ci_pipeline/
 
 - name: Download file with custom HTTP headers
-  command: curl --location --header "PRIVATE-TOKEN: '{{ token }}'" "gitlab.com/api/v4/projects/25427711/jobs/1586488246/artifacts" --output artifacts.zip
+  command: curl --location --header  "{{ token|quote }}" "gitlab.com/api/v4/projects/25427711/jobs/1586488246/artifacts" --output artifacts.zip
 
 - name: cleanup tmp dir
-  file:
-    path: /tmp/ci_pipeline/
-    state: absent
+  command: rm -rf  /tmp/ci_pipeline/
