@@ -1,0 +1,6 @@
+#file: copy_jar.yaml
+- name: RC copy jar files
+  hosts: all
+  gather_facts: false
+  roles:
+    - copy_jsp
