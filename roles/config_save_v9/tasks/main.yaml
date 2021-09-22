@@ -1,0 +1,19 @@
+---
+#file: roles/was_sync/tasks/main.yaml
+
+- name: save config change
+  shell: '{{ wsadmin_path }} -lang jython -c "{{ ws_config_save }}"'
+  register: was_config_save
+  tags: was_save
+
+- name: save output
+  debug:
+    msg: "{{ was_config_save.stdout_lines }}"
+  tags: was_save_out
+
+- name: sending message to slack channel
+  import_role:
+    name: slack
+  vars:
+    payload: "*** Starting was config save on {{ inventory_hostname }}:\n {{ was_config_save.stdout }}"
+  tags: slack

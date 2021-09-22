@@ -6,6 +6,6 @@
   roles:
     - copy_ear
     - was_uninstall
-    - config_save
+    - config_save_v9
     - was_sync
     - was_deply_v9

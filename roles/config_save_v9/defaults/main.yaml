@@ -1,0 +1,4 @@
+---
+#file: roles/was_sync/defaults/main.yaml
+wsadmin_path: /usr/IBM/WebSphere/AppServer/profiles/Dmgr01/bin/wsadmin.sh
+ws_config_save: 'AdminConfig.save()'
