@@ -18,6 +18,11 @@
   tags: unisnt
   ignore_errors: yes  
 
+- name: save config change
+  shell: '{{ wsadmin_path }} -lang jython -c "{{ ws_config_save }}"'
+  register: was_config_save
+  tags: was_save  
+
 - name: uninstall output
   debug:
     msg: "{{ uninstall_out.stdout_lines }}"
