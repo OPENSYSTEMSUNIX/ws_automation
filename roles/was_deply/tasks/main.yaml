@@ -15,6 +15,7 @@
 - name: was deploy
   shell: '{{ wsadmin_path }} -lang jython -f {{ app_install }}'
   register: was_deply_out
+  ignore_errors: yes
 
 - name: deploy output
   debug:
