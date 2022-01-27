@@ -12,7 +12,9 @@
       body: Please Find the attached Diff report
       from: wfb@vericast.com 
       to:
-      - george.arellano@harlandclarke.com
+      - Donald.Wilcox@vericast.com
+      - jesse.zanavich@vericast.com
+      - john.forsythe@vericast.com
       #- avinash.desham@vericast.com      
       cc: middleware@harlandclarke.com
       attach:
