@@ -17,6 +17,7 @@
 #become_user: root
   command: chmod -R 777 {{installed_apps_path}}
   register: change_perm_out
+  ignore_errors: yes
 
 - name: perm output
   debug:
