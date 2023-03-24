@@ -1,0 +1,14 @@
+---
+#file: rc_sch_deply.yaml
+- name: RC Scheduler update deployment role
+  hosts: all
+  gather_facts: false
+  roles:
+    - copy_ear
+    - was_deply
+    - config_save
+    - was_sync
+  become: yes
+  become_user: root 
+  ignore_errors: yes     
+    
