@@ -1,0 +1,7 @@
+---
+#file: copy_ear.yaml
+- name: copy ear
+  hosts: all
+  gather_facts: false
+  roles:
+    - copy_ear
