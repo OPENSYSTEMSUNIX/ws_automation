@@ -1,0 +1,7 @@
+---
+#file: pep_tar_extract.yaml
+- name: extract latest pep tar file
+  hosts: all
+  gather_facts: false
+  roles:
+    - pep_tar_extract

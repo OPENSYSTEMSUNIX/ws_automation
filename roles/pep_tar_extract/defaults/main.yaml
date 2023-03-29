@@ -1,0 +1,3 @@
+---
+#file: roles/pep_tar_extract/defaults/main.yaml
+pep_tar_script: /usr/local/scripts/pep_tar_extraction.sh
