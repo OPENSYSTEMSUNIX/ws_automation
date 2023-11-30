@@ -1,0 +1,30 @@
+---
+#file: roles/was_deploy/tasks/main.yaml
+- name: get current date/time
+  command: date
+  register: ws_date
+  tags: ws_date
+
+- name: sending message to slack channel
+  import_role:
+    name: slack
+  vars:
+   payload: "*** Starting {{ app_name}} install at {{ ws_date.stdout }} on {{ inventory_hostname }}..."
+  tags: slack
+
+- name: was deploy
+  shell: '{{ app_install }}'
+  register: was_deply_out
+  ignore_errors: yes
+
+- name: deploy output
+  debug:
+    msg: "{{ was_deply_out.stdout_lines }}"
+
+- name: sending message to slack channel
+  import_role:
+    name: slack
+  vars:
+    payload: "*** Completed app install {{ app_name }} on {{ inventory_hostname }}:\n {{ was_deply_out.stdout }}"
+    clr: good
+  tags: slack

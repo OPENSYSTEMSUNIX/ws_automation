@@ -1,0 +1,12 @@
+---
+#file: rc_sch_deply.yaml
+- name: branch and choice
+  hosts: all
+  gather_facts: false
+  roles:
+    - was_deply_latest
+    - config_save
+    - was_sync
+  become: yes
+  become_user: root 
+  ignore_errors: yes 
