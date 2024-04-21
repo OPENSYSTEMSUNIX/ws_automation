@@ -10,10 +10,23 @@
     vars:
         payload: '*** Flipping {{ appname }} on {{ inventory_hostname }} to cluster {{cluster_name}} {{ ws_date.stdout }}...'
     tags: slack
+
+-
+    name: Ensure script is executable
+    file:
+        path: '{{ flip_script_path }}'
+        mode: '0755'
+
 -
     name: 'flip cluster'
     shell: '{{ flip_script_path }}'
     ignore_errors: true
+    register: shell_script_out
+    
+-
+    name: 'shell script output'
+    debug:
+        msg: '{{ shell_script_out.stdout_lines }}'
 
 -
     name: 'sending message to slack channel'

@@ -10,6 +10,13 @@
     vars:
         payload: '*** executing the shell script {{ shell_path }} '
     tags: slack
+
+-
+    name: Ensure script is executable
+    file:
+        path: '{{ shell_path }}'
+        mode: '0755'
+
 -
     name: 'executing shell script'
     shell: '{{ shell_path }}'
