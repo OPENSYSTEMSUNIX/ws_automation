@@ -13,6 +13,7 @@
 -
     name: 'flip cluster'
     shell: '{{ flip_script_path }}'
+    ignore_errors: true
 
 -
     name: 'sending message to slack channel'
